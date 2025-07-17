@@ -18,7 +18,7 @@ class MyHome extends StatelessWidget {
   final _transactions = [
     Transaction(id: "t1", title: "Tenis de Corrida", value: 310.00, date: DateTime.now()),
     Transaction(id: "t2", title: "Notebook", value: 1300.00, date: DateTime.now())
-  ]
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,12 @@ class MyHome extends StatelessWidget {
             ),
           ),
           SizedBox(height: 400), // Espaçamento controlado entre os Cards
-          Card(
-            child: Text("Lista de Transações"),
+          Column(
+            children: _transactions.map((tr) {
+              return Card(
+                child: Text(tr.title),
+              );
+            }).toList(),
           )
         ]
       )
