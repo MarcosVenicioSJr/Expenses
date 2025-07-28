@@ -13,7 +13,6 @@ class TransactionUser extends StatefulWidget {
 }
 
 class _TransactionUserState extends State<TransactionUser> {
-
   final _transactions = [
     Transaction(
       id: "t1",
@@ -45,8 +44,8 @@ class _TransactionUserState extends State<TransactionUser> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TransactionList(_transactions),
         TransactionForm(_addTransaction),
+        TransactionList(_transactions),
       ],
     );
   }

@@ -16,24 +16,6 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHome extends StatelessWidget {
-  final _titleController = TextEditingController();
-  final _valueController = TextEditingController();
-
-  final _transactions = [
-    Transaction(
-      id: "t1",
-      title: "Tenis de Corrida",
-      value: 310.00,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t2",
-      title: "Notebook",
-      value: 1300.00,
-      date: DateTime.now(),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,19 +24,21 @@ class MyHome extends StatelessWidget {
         title: Text("Despesas Pessoais"),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            child: Card(
-              child: Text("Despesas"),
-              elevation: 5,
-              color: Colors.blue,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              child: Card(
+                child: Text("Despesas"),
+                elevation: 5,
+                color: Colors.blue,
+              ),
             ),
-          ),
-          // SizedBox(height: 400), // Espaçamento controlado entre os Cards
-          TransactionUser(),
-        ],
+            // SizedBox(height: 400), // Espaçamento controlado entre os Cards
+            TransactionUser(),
+          ],
+        ),
       ),
     );
   }
